@@ -10,17 +10,22 @@
 
     <?php
         $books = [
-            "Book1",
-            "Books",
-            "Book 4"
+            [
+            "name" => "Book of vonderes",
+            "author" => "Henry",
+            "price" => "4"
+            ]
+
         ]
     ?>
 
-    <ul>
-        <?php foreach ($books as $book) :?>
-            <li><?= $book ?></li>
+    <li>
+        <?php foreach ($books as $book) : ?>
+            <li>
+                <?= $book["name"] ?>
+            </li>
         <?php endforeach ?>
-    </ul>
+    </li>
 
 </body>
 </html>
