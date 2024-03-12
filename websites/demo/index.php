@@ -6,12 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
         <?php
-            $greeting = "Hello";
-            // echo $greeting . " " . "Everybody!";
-            echo "$greeting Everybody"
+            $name = "Dark Matter";
+            $read = true;
+
+            if ($read){
+                $message = "You have read $name";
+            } else {
+                $message = "You have not read $name";
+            }
         ?>
-    </h1>
+        <h1>
+            <?php echo $message; ?>
+            <?= $message ?>
+        </h1>
 </body>
 </html>
+
