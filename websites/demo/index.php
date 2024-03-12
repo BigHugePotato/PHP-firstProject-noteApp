@@ -7,19 +7,17 @@
 </head>
 <body>
         <?php
-            $name = "Dark Matter";
-            $read = true;
+            $name = "John";
+            $hour = date("H");
 
-            if ($read){
-                $message = "You have read $name";
+            if ($hour < 12) {
+                echo "Good Morning, $name";
+            } elseif ($hour >= 12 && $hour < 18) {
+                echo "Good Evening, $name";
             } else {
-                $message = "You have not read $name";
+                echo "Good Morning, $name";
             }
         ?>
-        <h1>
-            <?php echo $message; ?>
-            <?= $message ?>
-        </h1>
 </body>
 </html>
 
