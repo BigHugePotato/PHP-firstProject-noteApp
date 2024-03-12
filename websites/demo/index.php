@@ -6,18 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-        <?php
-            $name = "John";
-            $hour = date("H");
+    <h1>Recommended Books</h1>
 
-            if ($hour < 12) {
-                echo "Good Morning, $name";
-            } elseif ($hour >= 12 && $hour < 18) {
-                echo "Good Evening, $name";
-            } else {
-                echo "Good Morning, $name";
-            }
-        ?>
+    <?php
+        $books = [
+            "Book1",
+            "Books",
+            "Book 4"
+        ]
+    ?>
+
+    <ul>
+        <?php foreach ($books as $book) :?>
+            <li><?= $book ?></li>
+        <?php endforeach ?>
+    </ul>
+
 </body>
 </html>
 
