@@ -1,39 +1,9 @@
 <?php
 
-$books = [
-    [
-        'name' => 'Do Androids Dream of Electric Sheep',
-        'author' => 'Philip K. Dick',
-        'releaseYear' => 1968,
-        'purchaseUrl' => 'http://example.com'
-    ],
-    [
-        'name' => 'Project Hail Mary',
-        'author' => 'Andy Weir',
-        'releaseYear' => 1999,
-        'purchaseUrl' => 'http://example.com'
-    ],
-    [
-        'name' => 'The Martian',
-        'author' => 'Andy Weir',
-        'releaseYear' => 1945,
-        'purchaseUrl' => 'http://example.com'
-    ],
-];
+require "functions.php";
 
-// function filter($items, $fn) {
-//     $filteredItems = [];
+$uri = $_SERVER["REQUEST_URI"];
 
-//     foreach ($items as $item) {
-//         if ($fn($item)){
-//             $filteredItems[] = $item;
-//         }
-//     }
-//     return $filteredItems;
-// };
-
-$filteredBooks = array_filter($books, function ($book) {
-    return $book["releaseYear"] <= 2000 && $book["releaseYear"] >= 1950;
-});
-
-require "index.view.php";
+if ($uri === "/") {
+    require "controllers\index.php";
+}
