@@ -6,7 +6,7 @@ class Database
 
     public function __construct($config, $username = "root", $password = "gymmgymm1")
     {
- 
+
 
         $dsn = "mysql:" . http_build_query($config, "", ";");
 
@@ -15,13 +15,13 @@ class Database
         ]);
     }
 
-    public function query($query)
+    public function query($query, $params = [])
     {
 
 
         $statement = $this->connection->prepare($query);
 
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
     }
