@@ -7,15 +7,22 @@ $routes = [
     "/" => "controllers/index.php",
     "/about" => "controllers/about.php",
     "/contact" => "controllers/contact.php",
-    "/notes" => "controllers/notes.php"
+    "/notes" => "controllers/notes.php",
+    "/note" => "controllers/note.php"
 ];
 
 
-function abort()
+function abort($code = 404)
 {
-    http_response_code(404);
+    http_response_code($code);
 
-    require "./views/404.php";
+    if ($code == 404) {
+        require "./views/404.php";
+    } elseif ($code == 403) {
+        require "./views/403.php";
+    } else {
+        echo "Error: HTTP status code {$code}";
+    }
 
     die();
 }
