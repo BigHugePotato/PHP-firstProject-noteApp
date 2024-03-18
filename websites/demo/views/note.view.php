@@ -9,7 +9,7 @@
         </p>
 
         <p>
-            <?php echo htmlspecialchars($note["body"]); ?>
+            <?= htmlspecialchars($note["body"]) ?>
         </p>
 
     </div>
