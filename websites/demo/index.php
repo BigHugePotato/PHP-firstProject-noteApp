@@ -3,6 +3,7 @@
 require "functions.php";
 require "Database.php";
 require "routes.php";
+require "Response.php";
 
 
 

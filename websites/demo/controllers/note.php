@@ -1,21 +1,18 @@
 <?php
 
+// require "Response.php";
 
 $config = require("config.php");
 $db = new Database($config["database"]);
 
 $heading = 'Note';
+$currentUser = 1;
 
 $note = $db->query("SELECT * FROM notes where id = :id", [
     "id" => $_GET["id"]
-    ])->fetch();
+])->findOrFail();
 
-if (! $note){
-    abort();
-}
+authorize($note["user_id"] === $currentUser);
 
-if ($note["user_id"] !== 1) {
-    abort(403);
-}
 
 require "views/note.view.php";
