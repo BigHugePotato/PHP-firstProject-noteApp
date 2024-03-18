@@ -7,16 +7,18 @@
         <?php foreach ($notes as $note) : ?>
 
             <li>
-                <a href="/note?id=<?= $note["id"]?>" class="text-blue-500 hover:underline">
+                <a href="/note?id=<?= $note["id"] ?>" class="text-blue-500 hover:underline">
                     <?= $note["body"] ?>
                 </a>
             </li>
 
-            <p>
-                <a href="#" class="text-500-blue hover:underline"></a>
-            </p>
 
         <?php endforeach ?>
+
+        <p class="mt-6 ">
+            <a href="/notes/create" class="text-blue-500 hover:underline">Create a new note</a>
+        </p>
+
     </div>
 </main>
 
