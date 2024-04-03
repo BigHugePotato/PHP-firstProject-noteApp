@@ -11,7 +11,7 @@ class Router
         $this->routes[] = [
             "uri" => $uri,
             "controller" => $controller,
-            "method" => "GET"
+            "method" => $method
         ];
     }
 
