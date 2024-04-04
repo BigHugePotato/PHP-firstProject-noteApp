@@ -3,6 +3,8 @@
 use Core\Database;
 use Core\App;
 
+$_SESSION["name"] = "Adrian";
+
 $db = App::resolve(Database::class);
 
 
