@@ -4,6 +4,8 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
+error_log('Form submission received');
+
 $email = $_POST["email"];
 $password = $_POST["password"];
 
@@ -19,8 +21,9 @@ if (!Validator::string($password, 7, 255)) {
 
 if (!empty($errors)) {
     return view("registration/create.view.php", [
-        "error" => $errors
+        "errors" => $errors
     ]);
+    exit();
 }
 
 $db = App::resolve(Database::class);
@@ -29,13 +32,15 @@ $results = $db->query("select * from users where email = :email", [
     "email" => $email
 ])->find();
 
-if ($user) {
+if ($results) {
     header("location: /");
     exit();
 } else {
-    $db->query("INSERT INTO users(email, password) VALUES(:email, :password)", [
+    $db->query("INSERT INTO users(email, password, name) VALUES(:email, :password, :name)", 
+    [
         "email" => $email,
-        "password" => $password
+        "password" => $password,
+        "name" => ""
     ]);
 }
 
